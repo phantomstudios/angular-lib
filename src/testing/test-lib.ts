@@ -4,7 +4,6 @@ import { ModuleWithProviders, Provider, Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-/* eslint-disable @typescript-eslint/ban-types */
 export declare interface ModuleConfig {
   declarations?: Array<Type<{}>> | null;
   imports?: Array<Type<{}> | ModuleWithProviders<{}>> | null;
@@ -14,8 +13,6 @@ export declare interface ModuleConfig {
 const DEFAULT_COMPONENT_TEST_IMPORTS: Array<
   Type<{}> | ModuleWithProviders<{}>
 > = [HttpClientTestingModule, NoopAnimationsModule];
-
-/* eslint-enable @typescript-eslint/ban-types */
 
 const BASE_HREF_PROVIDER: Provider = {
   provide: APP_BASE_HREF,

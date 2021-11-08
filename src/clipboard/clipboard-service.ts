@@ -20,7 +20,7 @@ const HIDDEN_TEXTAREA_STYLES = {
 @Injectable({ providedIn: 'root' })
 export class ClipboardService {
   constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: Record<string, unknown>,
+    @Inject(PLATFORM_ID) private readonly platformId: {},
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly platform: Platform
   ) {}
