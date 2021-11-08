@@ -5,6 +5,5 @@ dist
 .cache
 lib
 !src/*
-!test/*
 .idea
 .DS_Store

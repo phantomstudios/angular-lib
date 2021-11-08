@@ -1,23 +1,42 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["dom", "es2015"],
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./lib",
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "es2018"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "outDir": "./dist/out-tsc",
     "rootDir": "./src",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noImplicitReturns": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "importHelpers": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@phntms/angular-lib": ["./dist/angular-lib"],
+      "@phntms/angular-lib/*": ["./dist/angular-lib/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "enableResourceInlining": true,
+    "enableIvy": false,
+    "fullTemplateTypeCheck": true,
+    "skipTemplateCodegen": true,
+    "strictInjectionParameters": true,
+    "strictMetadataEmit": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["test/**/*"]
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
 }
