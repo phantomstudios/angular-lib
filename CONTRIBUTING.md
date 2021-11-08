@@ -14,8 +14,8 @@ it.
 ## Testing
 
 Testing is performed using `ng` and is tested on Windows, Linux and MacOS with
-Node 14 and 16 runtimes. For a PR to be considered all these environments need to
-pass. Testing is automated using GitHub Actions CI.
+Node 10 runtime. For a PR to be considered all these environments need to pass.
+Testing is automated using GitHub Actions CI.
 
 ## Submitting changes
 

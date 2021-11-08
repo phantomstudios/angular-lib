@@ -3,7 +3,7 @@
   "files": ["index.ts"],
   "angularCompilerOptions": {
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "@phntms/angular-lib/testing",
+    "flatModuleId": "@phntms/angular-lib/clipboard",
     "skipTemplateCodegen": true,
     "fullTemplateTypeCheck": true
   }

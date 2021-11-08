@@ -1,17 +1,21 @@
-import {APP_BASE_HREF} from '@angular/common';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ModuleWithProviders, Provider, Type} from '@angular/core';
-import {TestBed} from '@angular/core/testing';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { APP_BASE_HREF } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ModuleWithProviders, Provider, Type } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+/* eslint-disable @typescript-eslint/ban-types */
 export declare interface ModuleConfig {
-  declarations?: Array<Type<{}>>|null;
-  imports?: Array<Type<{}>|ModuleWithProviders<{}>>|null;
-  providers?: Provider[]|null;
+  declarations?: Array<Type<{}>> | null;
+  imports?: Array<Type<{}> | ModuleWithProviders<{}>> | null;
+  providers?: Provider[] | null;
 }
 
-const DEFAULT_COMPONENT_TEST_IMPORTS: Array<Type<{}>|ModuleWithProviders<{}>> =
-    [HttpClientTestingModule, NoopAnimationsModule];
+const DEFAULT_COMPONENT_TEST_IMPORTS: Array<
+  Type<{}> | ModuleWithProviders<{}>
+> = [HttpClientTestingModule, NoopAnimationsModule];
+
+/* eslint-enable @typescript-eslint/ban-types */
 
 const BASE_HREF_PROVIDER: Provider = {
   provide: APP_BASE_HREF,
@@ -23,11 +27,9 @@ const BASE_HREF_PROVIDER: Provider = {
  * reducing boilerplate when setting up test modules.
  */
 export function setupComponentTestingModule(config: ModuleConfig) {
-  TestBed
-      .configureTestingModule({
-        ...config,
-        imports: DEFAULT_COMPONENT_TEST_IMPORTS.concat(config.imports || []),
-        providers: [BASE_HREF_PROVIDER].concat(config.providers || []),
-      })
-      .compileComponents();
+  TestBed.configureTestingModule({
+    ...config,
+    imports: DEFAULT_COMPONENT_TEST_IMPORTS.concat(config.imports || []),
+    providers: [BASE_HREF_PROVIDER].concat(config.providers || []),
+  }).compileComponents();
 }

@@ -15,8 +15,23 @@ Package one-liner overview.
 
 Package introduction, couple of paragraphs, with small code example.
 
+### Clipboard
+
 ```typescript
-...
+import {ClipboardModule} from '@phantom/angular';
+
+@NgModule({
+  imports: [
+    ClipboardModule,
+  ],
+})
+export class Foo {}
+```
+
+```html
+<button [copyToClipboard]="copyMyContents" aria-label="Copy to clipboard">
+  Copy to clipboard
+</button>
 ```
 
 ## Installation
