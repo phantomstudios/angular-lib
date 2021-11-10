@@ -38,6 +38,10 @@ export class Foo {}
 
 Examples TBC.
 
+### Loading
+
+[See documentation](src/loading/loading.md).
+
 ### Safe pipe
 
 Examples TBC.
