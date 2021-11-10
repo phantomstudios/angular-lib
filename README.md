@@ -34,6 +34,10 @@ export class Foo {}
 </button>
 ```
 
+### Files drop area
+
+Examples TBC.
+
 ### Social share
 
 ```typescript
