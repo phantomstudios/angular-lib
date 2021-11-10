@@ -1,7 +1,7 @@
 {
   "name": "@phntms/angular-lib",
   "description": "Description, same as overview one-liner from README.md.",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "author": "Josua Pedersen (josua@phntms.com)",
   "license": "MIT",
   "main": "lib/index.js",
