@@ -18,7 +18,7 @@ There are two main advantages to this:
 You'll need to add `WindowModule` to your AppModule's imports array:
 
 ```typescript
-import { WindowModule } from "@phantom/angular/window";
+import { WindowModule } from "@phntms/angular-lib/window";
 
 @NgModule({
   // All your other AppModule providers, declarations, bootstrap.
@@ -34,7 +34,7 @@ In your components you can inject and have reference to a local window property
 like so:
 
 ```typescript
-import { WINDOW } from "@phantom/angular/window";
+import { WINDOW } from "@phntms/angular-lib/window";
 
 @Component({})
 class WindowTestHostComponent {

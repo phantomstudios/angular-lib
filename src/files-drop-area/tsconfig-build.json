@@ -3,7 +3,7 @@
   "files": ["index.ts"],
   "angularCompilerOptions": {
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "@phantom/angular/files-drop-area",
+    "flatModuleId": "@phntms/angular-lib/files-drop-area",
     "skipTemplateCodegen": true,
     "fullTemplateTypeCheck": true
   }

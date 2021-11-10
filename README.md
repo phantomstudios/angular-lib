@@ -18,7 +18,7 @@ Package introduction, couple of paragraphs, with small code example.
 ### Clipboard
 
 ```typescript
-import {ClipboardModule} from '@phantom/angular';
+import {ClipboardModule} from '@phntms/angular-lib';
 
 @NgModule({
   imports: [
@@ -38,9 +38,41 @@ export class Foo {}
 
 Examples TBC.
 
+### Loading
+
+[See documentation](src/loading/loading.md).
+
 ### Safe pipe
 
 Examples TBC.
+
+### Scroll
+
+[See documentation](src/scroll/scroll.md).
+
+### Social share
+
+```typescript
+import {getSocialNetworkShareLink, SocialNetwork} from '@phantom/angular';
+
+class Foo {
+  readonly socialNetwork = SocialNetwork;
+
+  getShareUrl(social: SocialNetwork) {
+    return getSocialNetworkShareLink(location.href, social);
+  }
+}
+```
+
+```html
+<a [attr.href]="getShareUrl(socialNetwork.FACEBOOK)" class="share-link">
+  Share on Facebook
+</a>
+```
+
+### Window
+
+[See documentation](src/window/window.md).
 
 ## Installation
 
