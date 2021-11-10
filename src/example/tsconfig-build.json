@@ -3,7 +3,7 @@
   "files": ["index.ts"],
   "angularCompilerOptions": {
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "@phntms/angular-lib/window",
+    "flatModuleId": "@phntms/angular-lib/example",
     "skipTemplateCodegen": true,
     "fullTemplateTypeCheck": true
   }
