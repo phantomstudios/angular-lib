@@ -18,7 +18,7 @@ Package introduction, couple of paragraphs, with small code example.
 ### Clipboard
 
 ```typescript
-import {ClipboardModule} from '@phantom/angular';
+import {ClipboardModule} from '@phntms/angular-lib';
 
 @NgModule({
   imports: [
