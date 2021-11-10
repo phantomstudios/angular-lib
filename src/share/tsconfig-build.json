@@ -1,0 +1,10 @@
+{
+  "extends": "tsconfig.ts",
+  "files": ["index.ts"],
+  "angularCompilerOptions": {
+    "flatModuleOutFile": "index.js",
+    "flatModuleId": "@phantom/angular/share",
+    "skipTemplateCodegen": true,
+    "fullTemplateTypeCheck": true
+  }
+}
