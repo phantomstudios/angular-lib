@@ -1,8 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {animationFrameScheduler, fromEvent, Observable} from 'rxjs';
 import {distinctUntilChanged, map, pairwise, shareReplay, startWith, throttleTime} from 'rxjs/operators';
-
-import {WINDOW} from '..//window';
+import {WINDOW} from '@phntms/angular-lib/window';
 
 export enum ScrollDirection {
   DOWN,

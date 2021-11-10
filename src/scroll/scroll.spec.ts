@@ -1,10 +1,10 @@
 import {Component, OnDestroy} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {WindowModule} from '@phntms/angular-lib/window';
 import {ReplaySubject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
 import {setupComponentTestingModule} from '../testing/test-lib';
-import {WindowModule} from '../window';
 
 import {ScrollDirection, ScrollService} from './scroll';
 
