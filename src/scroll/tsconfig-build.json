@@ -3,7 +3,7 @@
   "files": ["index.ts"],
   "angularCompilerOptions": {
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "@phantom/angular/scroll",
+    "flatModuleId": "@phntms/angular-lib/scroll",
     "skipTemplateCodegen": true,
     "fullTemplateTypeCheck": true
   }
