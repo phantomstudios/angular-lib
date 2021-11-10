@@ -35,7 +35,7 @@
     "fix:angular": "ng lint --fix",
     "fix:format": "prettier \"src/**/*.{md,html,json,yaml,yml}\" --write",
     "depcheck": "npx npm-check --update",
-    "release:version": "standard-version -t @phantom/angular\\@",
+    "release:version": "standard-version -t @phntms/angular-lib\\@",
     "release:build": "npm run build",
     "release:publish-npm": "npm publish dist/angular-lib",
     "publish": "npm run release:version & npm run release:build && npm run release:publish-npm"

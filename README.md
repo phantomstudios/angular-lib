@@ -18,7 +18,7 @@ Package introduction, couple of paragraphs, with small code example.
 ### Clipboard
 
 ```typescript
-import {ClipboardModule} from '@phantom/angular';
+import {ClipboardModule} from '@phntms/angular-lib';
 
 @NgModule({
   imports: [
@@ -37,6 +37,10 @@ export class Foo {}
 ### Files drop area
 
 Examples TBC.
+
+### Loading
+
+[See documentation](src/loading/loading.md).
 
 ### Safe pipe
 
@@ -61,6 +65,10 @@ class Foo {
   Share on Facebook
 </a>
 ```
+
+### Window
+
+[See documentation](src/window/window.md).
 
 ## Installation
 
