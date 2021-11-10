@@ -46,6 +46,10 @@ Examples TBC.
 
 Examples TBC.
 
+### Scroll
+
+[See documentation](src/scroll/scroll.md).
+
 ### Social share
 
 ```typescript
