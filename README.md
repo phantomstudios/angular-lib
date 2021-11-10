@@ -46,6 +46,26 @@ Examples TBC.
 
 Examples TBC.
 
+### Social share
+
+```typescript
+import {getSocialNetworkShareLink, SocialNetwork} from '@phantom/angular';
+
+class Foo {
+  readonly socialNetwork = SocialNetwork;
+
+  getShareUrl(social: SocialNetwork) {
+    return getSocialNetworkShareLink(location.href, social);
+  }
+}
+```
+
+```html
+<a [attr.href]="getShareUrl(socialNetwork.FACEBOOK)" class="share-link">
+  Share on Facebook
+</a>
+```
+
 ### Window
 
 [See documentation](src/window/window.md).
