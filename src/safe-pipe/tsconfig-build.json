@@ -1,0 +1,12 @@
+{
+  "extends": "tsconfig.ts",
+  "files": [
+    "index.ts",
+  ],
+  "angularCompilerOptions": {
+    "flatModuleOutFile": "index.js",
+    "flatModuleId": "@phantom/angular/safe-pipe",
+    "skipTemplateCodegen": true,
+    "fullTemplateTypeCheck": true
+  }
+}
