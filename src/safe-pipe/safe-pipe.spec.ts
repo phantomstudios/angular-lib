@@ -39,7 +39,7 @@ describe('The SafePipe', () => {
   });
 
   beforeEach(inject([SafePipe], (pipe: SafePipe) => {
-    domSanitizer = TestBed.get(DomSanitizer);
+    domSanitizer = TestBed.inject(DomSanitizer);
     safePipe = pipe;
   }));
 
