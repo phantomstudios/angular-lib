@@ -38,6 +38,10 @@ export class Foo {}
 
 Examples TBC.
 
+### Safe pipe
+
+Examples TBC.
+
 ## Installation
 
 Install this package with `npm`.
