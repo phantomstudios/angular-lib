@@ -1,5 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
-import {WINDOW} from '@phantom/angular/window';
+
+import {WINDOW} from '../window';
 
 const POPUP_OPTIONS = 'menubar=no,toolbar=no,resizable=yes,' +
     'scrollbars=yes,height=253,width=600';

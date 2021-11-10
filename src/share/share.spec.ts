@@ -29,7 +29,7 @@ describe('The share service', () => {
         },
       ],
     });
-    shareService = TestBed.injectTestBed.inject(ShareService);
+    shareService = TestBed.inject(ShareService);
   });
 
   it('shares a link to Facebook correctly', () => {
