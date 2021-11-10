@@ -38,6 +38,10 @@ export class Foo {}
 
 Examples TBC.
 
+### Scroll
+
+Examples TBC.
+
 ## Installation
 
 Install this package with `npm`.
