@@ -41,12 +41,11 @@
     "publish": "npm run release:version & npm run release:build && npm run release:publish-npm"
   },
   "dependencies": {
-    "@angular/animations": "~9.1.11",
+    "@angular/animations": "^9.1.11",
     "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.11",
     "@angular/compiler": "~9.1.11",
     "@angular/core": "~9.1.11",
-    "@angular/forms": "~9.1.11",
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
@@ -61,8 +60,6 @@
     "@angular/cli": "~9.1.9",
     "@angular/compiler-cli": "^9.1.11",
     "@angular/language-service": "~9.1.11",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/preset-typescript": "^7.16.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
