@@ -1,0 +1,10 @@
+{
+  "extends": "tsconfig.ts",
+  "files": ["index.ts"],
+  "angularCompilerOptions": {
+    "flatModuleOutFile": "index.js",
+    "flatModuleId": "@phntms/angular-lib/loading",
+    "skipTemplateCodegen": true,
+    "fullTemplateTypeCheck": true
+  }
+}
