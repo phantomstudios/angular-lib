@@ -27,7 +27,6 @@
     "prepublishOnly": "npm run build",
     "test": "ng test --watch false",
     "test:watch": "ng test",
-    "e2e": "ng e2e",
     "lint": "NODE_ENV=test npm-run-all --parallel lint:*",
     "lint:angular": "ng lint",
     "lint:format": "prettier \"src/**/*.{md,html,json,yaml,yml}\" --check",
