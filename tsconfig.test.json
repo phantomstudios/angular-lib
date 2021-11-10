@@ -1,6 +1,19 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "es6"
-  }
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node"
+    ],
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "files": [
+    "./src/test.ts"
+  ],
+  "exclude": [],
+  "include": [
+    "./src/**/*.spec.ts",
+    "./src/**/*.d.ts"
+  ]
 }
