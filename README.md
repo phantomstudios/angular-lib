@@ -38,6 +38,10 @@ export class Foo {}
 
 Examples TBC.
 
+### Safe pipe
+
+Examples TBC.
+
 ### Social share
 
 ```typescript
