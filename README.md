@@ -42,6 +42,10 @@ Examples TBC.
 
 Examples TBC.
 
+### Window
+
+[See documentation](src/window/window.md).
+
 ## Installation
 
 Install this package with `npm`.
