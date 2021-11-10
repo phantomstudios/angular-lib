@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {WINDOW, WindowModule} from '@phntms/angular-lib/window';
 
 import {setupComponentTestingModule} from '../testing/test-lib';
-import {WINDOW, WindowModule} from '../window';
 
 import {getSocialNetworkShareLink, ShareService, SocialNetwork, SocialNetworkUrl} from './share';
 

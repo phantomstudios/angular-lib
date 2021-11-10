@@ -3,7 +3,7 @@
   "files": ["index.ts"],
   "angularCompilerOptions": {
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "@phantom/angular/share",
+    "flatModuleId": "@phntms/angular-lib/share",
     "skipTemplateCodegen": true,
     "fullTemplateTypeCheck": true
   }
