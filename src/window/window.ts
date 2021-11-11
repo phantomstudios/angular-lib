@@ -31,21 +31,19 @@ export function windowFactory(
   }
 }
 
-const browserWindowProvider: ClassProvider = {
+export const browserWindowProvider: ClassProvider = {
   provide: WindowRef,
   useClass: BrowserWindowRef,
 };
 
-const windowProvider: FactoryProvider = {
+export const windowProvider: FactoryProvider = {
   provide: WINDOW,
   useFactory: windowFactory,
   deps: [WindowRef, PLATFORM_ID],
 };
 
-export const WINDOW_PROVIDERS = [browserWindowProvider, windowProvider];
-
 @NgModule({
-  providers: [...WINDOW_PROVIDERS],
+  providers: [browserWindowProvider, windowProvider],
 })
 export class WindowModule {
 }
