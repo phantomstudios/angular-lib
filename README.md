@@ -8,6 +8,7 @@ This project was generated with
 [![NPM version][npm-image]][npm-url]
 [![Actions Status][ci-image]][ci-url]
 [![PR Welcome][npm-downloads-image]][npm-downloads-url]
+[![CodeQL][codeql-image]][codeql-url]
 
 Package one-liner overview.
 
@@ -145,3 +146,5 @@ Please read `CONTRIBUTING` for details on our `CODE_OF_CONDUCT`, and the process
 [npm-downloads-url]: https://npmcharts.com/compare/@phntms/angular-lib?minimal=true
 [ci-image]: https://github.com/phantomstudios/angular-lib/workflows/test/badge.svg
 [ci-url]: https://github.com/phantomstudios/angular-lib/actions
+[codeql-image]: https://github.com/phantomstudios/angular-lib/workflows/CodeQL/badge.svg
+[codeql-url]: https://github.com/phantomstudios/angular-lib/actions
