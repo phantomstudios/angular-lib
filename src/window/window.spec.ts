@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {setupComponentTestingModule} from '../testing/test-lib';
 
-import {WINDOW, WINDOW_PROVIDERS} from './window';
+import {browserWindowProvider, WINDOW, windowProvider} from './window';
 
 @Component({
   selector: 'ph-window-test-host',
@@ -29,7 +29,8 @@ function setupWindowTestingModule(platformType: PlatformType) {
         provide: PLATFORM_ID,
         useValue: platformType,
       },
-      ...WINDOW_PROVIDERS,
+      browserWindowProvider,
+      windowProvider,
     ],
   })
   class MockWindowModule {}
