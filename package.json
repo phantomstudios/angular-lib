@@ -2,7 +2,7 @@
   "name": "@phntms/angular-lib",
   "description": "Description, same as overview one-liner from README.md.",
   "version": "1.0.1",
-  "author": "Josua Pedersen (josua@phntms.com)",
+  "author": "Josua Pedersen (josua@phantom.agency)",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -13,9 +13,6 @@
   },
   "bugs": {
     "url": "https://github.com/phantomstudios/angular-lib/issues"
-  },
-  "engines": {
-    "node": ">=10.13.0"
   },
   "keywords": [
     "angular"
