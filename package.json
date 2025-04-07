@@ -14,9 +14,6 @@
   "bugs": {
     "url": "https://github.com/phantomstudios/angular-lib/issues"
   },
-  "engines": {
-    "node": ">=10.13.0"
-  },
   "keywords": [
     "angular"
   ],
