@@ -1,1 +1,1 @@
-export * from './files-drop-area';
+export * from "./files-drop-area";

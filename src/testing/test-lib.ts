@@ -1,8 +1,8 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ModuleWithProviders, Provider, Type } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { APP_BASE_HREF } from "@angular/common";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ModuleWithProviders, Provider, Type } from "@angular/core";
+import { TestBed } from "@angular/core/testing";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 export declare interface ModuleConfig {
   declarations?: Array<Type<{}>> | null;
@@ -16,7 +16,7 @@ const DEFAULT_COMPONENT_TEST_IMPORTS: Array<
 
 const BASE_HREF_PROVIDER: Provider = {
   provide: APP_BASE_HREF,
-  useValue: '/',
+  useValue: "/",
 };
 
 /**
@@ -24,9 +24,29 @@ const BASE_HREF_PROVIDER: Provider = {
  * reducing boilerplate when setting up test modules.
  */
 export function setupComponentTestingModule(config: ModuleConfig) {
+  const imports = [...DEFAULT_COMPONENT_TEST_IMPORTS];
+  const declarations = [];
+
+  // Add standard imports
+  if (config.imports) {
+    imports.push(...config.imports);
+  }
+
+  // Handle components
+  if (config.declarations) {
+    for (const declaration of config.declarations) {
+      // Check if component is standalone
+      if ((declaration as any).ɵcmp?.standalone) {
+        imports.push(declaration);
+      } else {
+        declarations.push(declaration);
+      }
+    }
+  }
+
   TestBed.configureTestingModule({
-    ...config,
-    imports: DEFAULT_COMPONENT_TEST_IMPORTS.concat(config.imports || []),
-    providers: [BASE_HREF_PROVIDER].concat(config.providers || []),
+    declarations,
+    imports,
+    providers: [BASE_HREF_PROVIDER, ...(config.providers || [])],
   }).compileComponents();
 }

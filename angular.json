@@ -10,7 +10,7 @@
       "prefix": "ph",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "tsconfig.json",
             "project": "src/ng-package.json"
@@ -29,21 +29,11 @@
             "tsConfig": "tsconfig.test.json",
             "karmaConfig": "karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.json",
-              "tsconfig.test.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
   },
-  "defaultProject": "angular-lib"
+  "cli": {
+    "analytics": false
+  }
 }

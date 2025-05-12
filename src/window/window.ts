@@ -1,7 +1,14 @@
-import {isPlatformBrowser} from '@angular/common';
-import {ClassProvider, FactoryProvider, Injectable, InjectionToken, NgModule, PLATFORM_ID} from '@angular/core';
+import { isPlatformBrowser } from "@angular/common";
+import {
+  ClassProvider,
+  FactoryProvider,
+  Injectable,
+  InjectionToken,
+  NgModule,
+  PLATFORM_ID,
+} from "@angular/core";
 
-export const WINDOW = new InjectionToken('WindowToken');
+export const WINDOW = new InjectionToken("WindowToken");
 
 /**
  * Define abstract class for obtaining reference to the global window object.
@@ -22,8 +29,9 @@ export class BrowserWindowRef extends WindowRef {
 }
 
 export function windowFactory(
-    browserWindowRef: BrowserWindowRef,
-    platformId: InjectionToken<Object>): Window|Object {
+  browserWindowRef: BrowserWindowRef,
+  platformId: InjectionToken<Object>,
+): Window | Object {
   if (isPlatformBrowser(platformId)) {
     return browserWindowRef.nativeWindow;
   } else {
@@ -45,5 +53,4 @@ export const windowProvider: FactoryProvider = {
 @NgModule({
   providers: [browserWindowProvider, windowProvider],
 })
-export class WindowModule {
-}
+export class WindowModule {}
