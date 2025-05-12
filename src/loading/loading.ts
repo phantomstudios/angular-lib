@@ -39,17 +39,22 @@ export class LoadingService {
    * An observable stream which emits true while data is loading during router
    * navigation and false when navigation is complete.
    */
-  private readonly navigationLoadingState$ = this.router.events.pipe(
-    filter((event) => isNavigationEvent(event)),
-    map((event) => event instanceof NavigationStart),
-    startWith(false),
-  );
+  private readonly navigationLoadingState$ =
+    this.createNavigationLoadingStateObs();
 
   private readonly userDefinedLoadingState = new BehaviorSubject(false);
   private readonly isLoading$ = merge(
     this.navigationLoadingState$,
     this.userDefinedLoadingState,
   ).pipe(distinctUntilChanged(), shareReplay(1));
+
+  private createNavigationLoadingStateObs(): Observable<boolean> {
+    return this.router.events.pipe(
+      filter((event) => isNavigationEvent(event)),
+      map((event) => event instanceof NavigationStart),
+      startWith(false),
+    );
+  }
 
   /**
    * Returns an observable which emits the latest loading state from both
