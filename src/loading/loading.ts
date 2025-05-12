@@ -33,6 +33,8 @@ function isNavigationEvent(event: Event): boolean {
   providedIn: "root",
 })
 export class LoadingService {
+  constructor(private readonly router: Router) {}
+
   /**
    * An observable stream which emits true while data is loading during router
    * navigation and false when navigation is complete.
@@ -48,8 +50,6 @@ export class LoadingService {
     this.navigationLoadingState$,
     this.userDefinedLoadingState,
   ).pipe(distinctUntilChanged(), shareReplay(1));
-
-  constructor(private readonly router: Router) {}
 
   /**
    * Returns an observable which emits the latest loading state from both

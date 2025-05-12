@@ -1,4 +1,4 @@
-import { NgModule, Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from "@angular/core";
 import {
   DomSanitizer,
   SafeHtml,
@@ -15,7 +15,7 @@ type ContentType = "html" | "style" | "script" | "url" | "resourceUrl";
  * Safe pipe which acts as a convenience wapper around the various methods of
  * Angular's DomSanitizer
  */
-@Pipe({ name: "safe" })
+@Pipe({ name: "safe", standalone: true })
 export class SafePipe implements PipeTransform {
   constructor(private readonly sanitizer: DomSanitizer) {}
 
@@ -38,9 +38,3 @@ export class SafePipe implements PipeTransform {
     }
   }
 }
-
-@NgModule({
-  declarations: [SafePipe],
-  exports: [SafePipe],
-})
-export class SafePipeModule {}
