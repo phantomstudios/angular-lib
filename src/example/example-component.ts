@@ -1,8 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'ph-example-component',
-  template: '<p>ph-example-component works!</p>',
+  selector: "ph-example-component",
+  template: "<p>ph-example-component works!</p>",
 })
-export class PhExampleComponent {
-}
+export class PhExampleComponent {}

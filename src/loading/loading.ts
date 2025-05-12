@@ -1,11 +1,28 @@
-import {Injectable} from '@angular/core';
-import {Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
-import {BehaviorSubject, merge, Observable} from 'rxjs';
-import {distinctUntilChanged, filter, map, shareReplay, startWith} from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import {
+  Event,
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+} from "@angular/router";
+import { BehaviorSubject, merge, Observable } from "rxjs";
+import {
+  distinctUntilChanged,
+  filter,
+  map,
+  shareReplay,
+  startWith,
+} from "rxjs/operators";
 
 function isNavigationEvent(event: Event): boolean {
-  return event instanceof NavigationEnd || event instanceof NavigationError ||
-      event instanceof NavigationStart || event instanceof NavigationCancel;
+  return (
+    event instanceof NavigationEnd ||
+    event instanceof NavigationError ||
+    event instanceof NavigationStart ||
+    event instanceof NavigationCancel
+  );
 }
 
 /**
@@ -13,23 +30,31 @@ function isNavigationEvent(event: Event): boolean {
  * state.
  */
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class LoadingService {
+  constructor(private readonly router: Router) {}
+
   /**
    * An observable stream which emits true while data is loading during router
    * navigation and false when navigation is complete.
    */
-  private readonly navigationLoadingState$ = this.router.events.pipe(
-      filter(event => isNavigationEvent(event)),
-      map(event => event instanceof NavigationStart), startWith(false));
+  private readonly navigationLoadingState$ =
+    this.createNavigationLoadingStateObs();
 
   private readonly userDefinedLoadingState = new BehaviorSubject(false);
-  private readonly isLoading$ =
-      merge(this.navigationLoadingState$, this.userDefinedLoadingState)
-          .pipe(distinctUntilChanged(), shareReplay(1));
+  private readonly isLoading$ = merge(
+    this.navigationLoadingState$,
+    this.userDefinedLoadingState,
+  ).pipe(distinctUntilChanged(), shareReplay(1));
 
-  constructor(private readonly router: Router) {}
+  private createNavigationLoadingStateObs(): Observable<boolean> {
+    return this.router.events.pipe(
+      filter((event) => isNavigationEvent(event)),
+      map((event) => event instanceof NavigationStart),
+      startWith(false),
+    );
+  }
 
   /**
    * Returns an observable which emits the latest loading state from both

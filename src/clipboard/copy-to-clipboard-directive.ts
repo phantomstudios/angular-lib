@@ -1,7 +1,7 @@
-import { SPACE, ENTER } from '@angular/cdk/keycodes';
-import { Directive, EventEmitter, Input, Output } from '@angular/core';
+import { SPACE, ENTER } from "@angular/cdk/keycodes";
+import { Directive, EventEmitter, Input, Output } from "@angular/core";
 
-import { ClipboardService } from './clipboard-service';
+import { ClipboardService } from "./clipboard-service";
 
 /**
  * A directive for an element providing functionality to copy text to the user's
@@ -16,14 +16,15 @@ import { ClipboardService } from './clipboard-service';
  * </button>
  */
 @Directive({
-  selector: '[copyToClipboard]',
+  selector: "[copyToClipboard]",
   host: {
-    '(click)': 'copy()',
-    '(keypress)': 'onKeyPress($event)',
+    "(click)": "copy()",
+    "(keypress)": "onKeyPress($event)",
   },
+  standalone: true,
 })
 export class CopyToClipboardDirective {
-  @Input('copyToClipboard') text = '';
+  @Input("copyToClipboard") text = "";
   @Output() readonly onCopy = new EventEmitter<boolean>();
 
   constructor(private readonly clipboardService: ClipboardService) {}

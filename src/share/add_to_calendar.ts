@@ -1,15 +1,15 @@
-import {isDevMode} from '@angular/core';
+import { isDevMode } from "@angular/core";
 
 export const BASE_URL_ADD_TO_CALENDAR_URL =
-    'http://www.google.com/calendar/event?action=TEMPLATE';
+  "http://www.google.com/calendar/event?action=TEMPLATE";
 
 /**
  * Constant signifying to that a calendar event should be set to the users
  * current timezone. Note - the actual value of this constant is not used.
  */
-export const USER_TIME_ZONE = 'User timezone';
+export const USER_TIME_ZONE = "User timezone";
 
-const UTC_TIME_ZONE_CODE = 'Z';
+const UTC_TIME_ZONE_CODE = "Z";
 
 export interface GoogleCalendarEventOptions {
   /** Optional property which fills the event details section of an event. */
@@ -56,11 +56,14 @@ export interface GoogleCalendarEventOptions {
 }
 
 function formatDateSegment(dateSegment: number): string {
-  return dateSegment.toString().padStart(2, '0');
+  return dateSegment.toString().padStart(2, "0");
 }
 
 function formatDateString(
-    date: Date, isAllDayEvent = false, timeZone = UTC_TIME_ZONE_CODE): string {
+  date: Date,
+  isAllDayEvent = false,
+  timeZone = UTC_TIME_ZONE_CODE,
+): string {
   const year = date.getFullYear();
   const month = formatDateSegment(date.getMonth() + 1);
   const day = formatDateSegment(date.getDate());
@@ -71,7 +74,7 @@ function formatDateString(
     // Timezone should only be included in the date string if UTC ('Z') is being
     // used.
     const timeZoneCode =
-        timeZone === UTC_TIME_ZONE_CODE ? UTC_TIME_ZONE_CODE : '';
+      timeZone === UTC_TIME_ZONE_CODE ? UTC_TIME_ZONE_CODE : "";
     const hours = formatDateSegment(date.getHours());
     const minutes = formatDateSegment(date.getMinutes());
     const seconds = formatDateSegment(date.getSeconds());
@@ -112,23 +115,30 @@ export class GoogleCalendarEvent extends CalendarEvent {
       location,
       startDate,
       timeZone,
-      title
+      title,
     } = this.options;
 
     if (isDevMode() && startDate.getTime() > endDate.getTime()) {
-      throw new Error('Start date must not be later than end date!');
+      throw new Error("Start date must not be later than end date!");
     }
 
-    const formattedStartDate =
-        formatDateString(startDate, isAllDayEvent, timeZone);
+    const formattedStartDate = formatDateString(
+      startDate,
+      isAllDayEvent,
+      timeZone,
+    );
     const formattedEndDate = formatDateString(endDate, isAllDayEvent, timeZone);
     const timeZoneSection =
-        timeZone && timeZone !== USER_TIME_ZONE ? `&ctz=${timeZone}` : '';
-    const detailsSection = details ? `&details=${details}` : '';
-    const locationSection = location ? `&location=${location}` : '';
+      timeZone && timeZone !== USER_TIME_ZONE ? `&ctz=${timeZone}` : "";
+    const detailsSection = details ? `&details=${details}` : "";
+    const locationSection = location ? `&location=${location}` : "";
 
-    return encodeURI(`${BASE_URL_ADD_TO_CALENDAR_URL}&dates=${
-        formattedStartDate}/${formattedEndDate}&text=${title}${
-        timeZoneSection}${detailsSection}${locationSection}`);
+    return encodeURI(
+      `${BASE_URL_ADD_TO_CALENDAR_URL}&dates=${
+        formattedStartDate
+      }/${formattedEndDate}&text=${title}${
+        timeZoneSection
+      }${detailsSection}${locationSection}`,
+    );
   }
 }

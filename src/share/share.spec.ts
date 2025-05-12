@@ -1,17 +1,22 @@
-import {TestBed} from '@angular/core/testing';
-import {WINDOW, WindowModule} from '@phntms/angular-lib/window';
+import { TestBed } from "@angular/core/testing";
+import { WINDOW, WindowModule } from "../window";
 
-import {setupComponentTestingModule} from '../testing/test-lib';
+import { setupComponentTestingModule } from "../testing/test-lib";
 
-import {getSocialNetworkShareLink, ShareService, SocialNetwork, SocialNetworkUrl} from './share';
+import {
+  getSocialNetworkShareLink,
+  ShareService,
+  SocialNetwork,
+  SocialNetworkUrl,
+} from "./share";
 
-const MOCK_HASHTAG_LIST = ['cool', 'story', 'bro'];
-const MOCK_SHARE_COPY = 'Check out my sick link';
-const MOCK_VIA_PARAMETER = 'James Riall';
-const MOCK_WINDOW_LOCATION = 'https://example.com/';
-const MOCK_OVERRIDE_URL = 'https://external-example.com/share/';
+const MOCK_HASHTAG_LIST = ["cool", "story", "bro"];
+const MOCK_SHARE_COPY = "Check out my sick link";
+const MOCK_VIA_PARAMETER = "James Riall";
+const MOCK_WINDOW_LOCATION = "https://example.com/";
+const MOCK_OVERRIDE_URL = "https://external-example.com/share/";
 
-describe('The share service', () => {
+describe("The share service", () => {
   let shareService: ShareService;
 
   beforeEach(() => {
@@ -32,93 +37,107 @@ describe('The share service', () => {
     shareService = TestBed.inject(ShareService);
   });
 
-  it('shares a link to Facebook correctly', () => {
+  it("shares a link to Facebook correctly", () => {
     const expectedShareUrl = SocialNetworkUrl.FACEBOOK + MOCK_WINDOW_LOCATION;
 
     expect(
-        getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.FACEBOOK))
-        .toBe(expectedShareUrl);
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.FACEBOOK),
+    ).toBe(expectedShareUrl);
   });
 
-  it('shares a link to LinkedIn correctly', () => {
+  it("shares a link to LinkedIn correctly", () => {
     const expectedShareUrl = SocialNetworkUrl.LINKEDIN + MOCK_WINDOW_LOCATION;
 
     expect(
-        getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.LINKEDIN))
-        .toBe(expectedShareUrl);
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.LINKEDIN),
+    ).toBe(expectedShareUrl);
   });
 
-  it('shares a link with no prefilled copy to Twitter correctly', () => {
+  it("shares a link with no prefilled copy to Twitter correctly", () => {
     const expectedShareUrl = SocialNetworkUrl.TWITTER + MOCK_WINDOW_LOCATION;
 
     expect(
-        getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER))
-        .toBe(expectedShareUrl);
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER),
+    ).toBe(expectedShareUrl);
   });
 
-  it('shares a link with prefilled copy to Twitter correctly', () => {
-    const expectedShareUrl = SocialNetworkUrl.TWITTER + MOCK_WINDOW_LOCATION +
-        '&text=Check%20out%20my%20sick%20link';
+  it("shares a link with prefilled copy to Twitter correctly", () => {
+    const expectedShareUrl =
+      SocialNetworkUrl.TWITTER +
+      MOCK_WINDOW_LOCATION +
+      "&text=Check%20out%20my%20sick%20link";
 
-    expect(getSocialNetworkShareLink(
-               MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER,
-               {prefillCopy: MOCK_SHARE_COPY}))
-        .toBe(expectedShareUrl);
+    expect(
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER, {
+        prefillCopy: MOCK_SHARE_COPY,
+      }),
+    ).toBe(expectedShareUrl);
   });
 
   it(`shares a link with the 'hashtags' parameter to Twitter correctly`, () => {
-    const expectedShareUrl = SocialNetworkUrl.TWITTER + MOCK_WINDOW_LOCATION +
-        '&hashtags=cool,story,bro';
+    const expectedShareUrl =
+      SocialNetworkUrl.TWITTER +
+      MOCK_WINDOW_LOCATION +
+      "&hashtags=cool,story,bro";
 
-    expect(getSocialNetworkShareLink(
-               MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER,
-               {twitterHashtagList: MOCK_HASHTAG_LIST}))
-        .toBe(expectedShareUrl);
+    expect(
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER, {
+        twitterHashtagList: MOCK_HASHTAG_LIST,
+      }),
+    ).toBe(expectedShareUrl);
   });
 
   it(`shares a link with the 'via' parameter to Twitter correctly`, () => {
     const expectedShareUrl =
-        SocialNetworkUrl.TWITTER + MOCK_WINDOW_LOCATION + '&via=James%20Riall';
+      SocialNetworkUrl.TWITTER + MOCK_WINDOW_LOCATION + "&via=James%20Riall";
 
-    expect(getSocialNetworkShareLink(
-               MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER,
-               {twitterVia: MOCK_VIA_PARAMETER}))
-        .toBe(expectedShareUrl);
+    expect(
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER, {
+        twitterVia: MOCK_VIA_PARAMETER,
+      }),
+    ).toBe(expectedShareUrl);
   });
 
   it(`shares a link with multiple parameters to Twitter correctly`, () => {
-    const expectedShareUrl = SocialNetworkUrl.TWITTER + MOCK_WINDOW_LOCATION +
-        '&text=Check%20out%20my%20sick%20link' +
-        '&hashtags=cool,story,bro' +
-        '&via=James%20Riall';
+    const expectedShareUrl =
+      SocialNetworkUrl.TWITTER +
+      MOCK_WINDOW_LOCATION +
+      "&text=Check%20out%20my%20sick%20link" +
+      "&hashtags=cool,story,bro" +
+      "&via=James%20Riall";
     const mockShareOptions = {
       prefillCopy: MOCK_SHARE_COPY,
       twitterHashtagList: MOCK_HASHTAG_LIST,
       twitterVia: MOCK_VIA_PARAMETER,
     };
 
-    expect(getSocialNetworkShareLink(
-               MOCK_WINDOW_LOCATION, SocialNetwork.TWITTER, mockShareOptions))
-        .toBe(expectedShareUrl);
+    expect(
+      getSocialNetworkShareLink(
+        MOCK_WINDOW_LOCATION,
+        SocialNetwork.TWITTER,
+        mockShareOptions,
+      ),
+    ).toBe(expectedShareUrl);
   });
 
-  it('shares a link with no prefilled copy to WhatsApp correctly', () => {
+  it("shares a link with no prefilled copy to WhatsApp correctly", () => {
     const expectedShareUrl = SocialNetworkUrl.WHATSAPP + MOCK_WINDOW_LOCATION;
 
     expect(
-        getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.WHATSAPP))
-        .toBe(expectedShareUrl);
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.WHATSAPP),
+    ).toBe(expectedShareUrl);
   });
 
-  it('shares a link with prefilled copy to WhatsApp correctly', () => {
-    const expectedShareUrl =
-        `${SocialNetworkUrl.WHATSAPP}Check%20out%20my%20sick%20link%20${
-            MOCK_WINDOW_LOCATION}`;
+  it("shares a link with prefilled copy to WhatsApp correctly", () => {
+    const expectedShareUrl = `${SocialNetworkUrl.WHATSAPP}Check%20out%20my%20sick%20link%20${
+      MOCK_WINDOW_LOCATION
+    }`;
 
-    expect(getSocialNetworkShareLink(
-               MOCK_WINDOW_LOCATION, SocialNetwork.WHATSAPP,
-               {prefillCopy: MOCK_SHARE_COPY}))
-        .toBe(expectedShareUrl);
+    expect(
+      getSocialNetworkShareLink(MOCK_WINDOW_LOCATION, SocialNetwork.WHATSAPP, {
+        prefillCopy: MOCK_SHARE_COPY,
+      }),
+    ).toBe(expectedShareUrl);
   });
 
   it(`shares a link with a custom url`, () => {
@@ -128,8 +147,12 @@ describe('The share service', () => {
 
     const expectedShareUrl = SocialNetworkUrl.FACEBOOK + mockShareOptions.url;
 
-    expect(getSocialNetworkShareLink(
-               MOCK_WINDOW_LOCATION, SocialNetwork.FACEBOOK, mockShareOptions))
-        .toBe(expectedShareUrl);
+    expect(
+      getSocialNetworkShareLink(
+        MOCK_WINDOW_LOCATION,
+        SocialNetwork.FACEBOOK,
+        mockShareOptions,
+      ),
+    ).toBe(expectedShareUrl);
   });
 });

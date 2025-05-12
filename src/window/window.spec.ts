@@ -1,13 +1,13 @@
-import {Component, Inject, PLATFORM_ID, NgModule} from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { Component, Inject, PLATFORM_ID, NgModule } from "@angular/core";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import {setupComponentTestingModule} from '../testing/test-lib';
+import { setupComponentTestingModule } from "../testing/test-lib";
 
-import {browserWindowProvider, WINDOW, windowProvider} from './window';
+import { browserWindowProvider, WINDOW, windowProvider } from "./window";
 
 @Component({
-  selector: 'ph-window-test-host',
-  template: '',
+  selector: "ph-window-test-host",
+  template: "",
 })
 class WindowTestHostComponent {
   constructor(@Inject(WINDOW) private readonly window: Window) {}
@@ -18,8 +18,8 @@ class WindowTestHostComponent {
 }
 
 enum PlatformType {
-  BROWSER = 'browser',
-  SERVER = 'server',
+  BROWSER = "browser",
+  SERVER = "server",
 }
 
 function setupWindowTestingModule(platformType: PlatformType) {
@@ -41,11 +41,11 @@ function setupWindowTestingModule(platformType: PlatformType) {
   });
 }
 
-describe('The window provider', () => {
+describe("The window provider", () => {
   let component: WindowTestHostComponent;
   let fixture: ComponentFixture<WindowTestHostComponent>;
 
-  describe('when in the browser', () => {
+  describe("when in the browser", () => {
     beforeEach(() => {
       setupWindowTestingModule(PlatformType.BROWSER);
 
@@ -53,23 +53,22 @@ describe('The window provider', () => {
       component = fixture.componentInstance;
     });
 
-    it('gets the window object', () => {
+    it("gets the window object", () => {
       const window = component.getWindow();
 
       expect(window).toBeDefined();
     });
 
-    it('allows for interaction with the window methods properties and methods',
-       () => {
-         const {innerHeight, innerWidth, setTimeout} = component.getWindow();
+    it("allows for interaction with the window methods properties and methods", () => {
+      const { innerHeight, innerWidth, setTimeout } = component.getWindow();
 
-         expect(innerHeight).toBeGreaterThan(0);
-         expect(innerWidth).toBeGreaterThan(0);
-         expect(typeof setTimeout).toBe('function');
-       });
+      expect(innerHeight).toBeGreaterThan(0);
+      expect(innerWidth).toBeGreaterThan(0);
+      expect(typeof setTimeout).toBe("function");
+    });
   });
 
-  describe('when on the server', () => {
+  describe("when on the server", () => {
     beforeEach(() => {
       setupWindowTestingModule(PlatformType.SERVER);
 
@@ -77,7 +76,7 @@ describe('The window provider', () => {
       component = fixture.componentInstance;
     });
 
-    it('gets an empty object instead of the window when on the server', () => {
+    it("gets an empty object instead of the window when on the server", () => {
       expect(Object.keys(component.getWindow())).toEqual([]);
     });
   });
