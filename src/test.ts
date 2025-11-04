@@ -2,20 +2,26 @@
 // and framework files
 
 import "core-js/es/reflect";
-import "zone.js";
-import "zone.js/testing";
+import { NgModule, provideZonelessChangeDetection } from "@angular/core";
 import { getTestBed } from "@angular/core/testing";
 import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
-} from "@angular/platform-browser-dynamic/testing";
+  BrowserTestingModule,
+  platformBrowserTesting,
+} from "@angular/platform-browser/testing";
 
 declare const require: any;
 
-// First, initialize the Angular testing environment.
+// Create a custom testing module with zoneless support
+@NgModule({
+  imports: [BrowserTestingModule],
+  providers: [provideZonelessChangeDetection()],
+})
+class ZonelessBrowserTestingModule {}
+
+// First, initialize the Angular testing environment without Zone.js.
 getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  ZonelessBrowserTestingModule,
+  platformBrowserTesting(),
 );
 // Then we explicitly import all test files
 import "./clipboard/copy-to-clipboard-directive.spec";
