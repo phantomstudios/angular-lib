@@ -4,7 +4,7 @@
   "newProjectRoot": "./",
   "projects": {
     "angular-lib": {
-      "root": "src",
+      "root": "",
       "sourceRoot": "src",
       "projectType": "library",
       "prefix": "ph",
