@@ -7,3 +7,4 @@ lib
 !src/*
 .idea
 .DS_Store
+.angular
