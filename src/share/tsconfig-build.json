@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig.ts",
+  "extends": "../tsconfig.lib.prod.json",
   "files": ["index.ts"],
   "angularCompilerOptions": {
     "flatModuleOutFile": "index.js",
