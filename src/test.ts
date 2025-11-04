@@ -4,9 +4,9 @@
 import "core-js/es/reflect";
 import { NgModule, provideZonelessChangeDetection } from "@angular/core";
 import { getTestBed } from "@angular/core/testing";
-import { 
-  BrowserTestingModule, 
-  platformBrowserTesting 
+import {
+  BrowserTestingModule,
+  platformBrowserTesting,
 } from "@angular/platform-browser/testing";
 
 declare const require: any;
